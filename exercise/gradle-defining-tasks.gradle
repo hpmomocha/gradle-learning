@@ -1,0 +1,41 @@
+task(hello) {
+    doLast {
+        println "hello"
+    }
+}
+
+task(copy, type: Copy) {
+    from(file('srcDir'))
+    into(buildDir)
+}
+
+task('hello-string') {
+    doLast {
+        println "hello-string"
+    }
+}
+
+task('copy-string', type: Copy) {
+    from(file('srcDir'))
+    into(buildDir)
+}
+
+// Here we add tasks to the tasks collection
+// Option	         Description	                                                                    Default Value
+// "name"	         The name of the task to create.	                                                None. Must be specified.
+// "type"	         The class of the task to create.	                                                DefaultTask
+// "action"	         The closure or Action to execute when the task executes. See Task.doFirst(Action).	null
+// "overwrite"	     Replace an existing task?	                                                        false
+// "dependsOn"	     The dependencies of the task. See here for more details.	                        []
+// "group"	         The group of the task.	                                                            null
+// "description"	 The description of the task.	                                                    null
+tasks.create(name: 'hello') {
+    doLast {
+        println "hello"
+    }
+}
+
+tasks.create(name: 'copy', type: Copy) {
+    from(file('srcDir'))
+    into(buildDir)
+}
