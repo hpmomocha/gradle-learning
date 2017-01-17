@@ -1,0 +1,17 @@
+// Accessing a task via API - adding behaviour
+task hello {
+    doLast {
+        println 'Hello Earth'
+    }
+}
+hello.doFirst {
+    println 'Hello Venus'
+}
+hello.doLast {
+    println 'Hello Mars'
+}
+hello {
+    doLast {
+        println 'Hello Jupiter'
+    }
+}

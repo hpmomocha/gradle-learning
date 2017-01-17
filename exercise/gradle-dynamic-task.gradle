@@ -1,0 +1,16 @@
+4.times { counter ->
+    task "task$counter" {
+        doLast {
+            println "I'm task number $counter"
+        }
+    }
+}
+// 相当于定义了4个task：task0, task1, task2, task3
+// 运行gradle -b <filename> -q task0 ->结果：I'm task number 1
+
+// dynamically add dependencies to a task
+task0.dependsOn task2, task3
+// 运行结果
+// I'm task number 2
+// I'm task number 3
+// I'm task number 0

@@ -1,0 +1,21 @@
+Every Gradle build is made up of one or more projects.
+Each project is made up of one or more tasks. A task represents some atomic piece of work which a build performs. This might be compiling some classes, creating a JAR, generating Javadoc, or publishing some archives to a repository.
+
+运行build.gradle中的XXX task. >gradle -q XXX
+gradle中的tasks等同于Ant中的targets.
+
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+上述的task可以简单地定义成以下的task:
+task hello << {
+    println 'Hello world!'
+}
+The << operator is simply an alias for doLast.
+
+appetizer['æpɪtaɪzə]:开胃菜；开胃品
+
+task依赖与task Lazy依赖
